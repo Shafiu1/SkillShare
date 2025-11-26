@@ -5,6 +5,8 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
+import authRoutes from './routes/auth.js';
+
 dotenv.config();
 
 const app=express();
@@ -23,9 +25,12 @@ app.use(cors({
     credentials:true
 }));
 
-
+//Routes
 app.get("/",(req,res)=>{
     res.send("server is running!");
 });
+
+app.use("/api/auth",authRoutes);
+
 
 export default app;

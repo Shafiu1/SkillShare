@@ -6,6 +6,9 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 
 import authRoutes from './routes/auth.js';
+import courseRoutes from "./routes/courseRoute.js";
+
+
 
 dotenv.config();
 
@@ -31,6 +34,7 @@ app.get("/",(req,res)=>{
 });
 
 app.use("/api/auth",authRoutes);
+app.use("/api/courses", courseRoutes);
 
 
 export default app;
